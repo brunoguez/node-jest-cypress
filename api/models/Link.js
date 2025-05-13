@@ -1,7 +1,7 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../config/database.js";
-import Usuario from "./Usuario.js";
-import moment from "moment-timezone";
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database.js");
+const Usuario = require("./Usuario.js");
+const moment = require("moment-timezone");
 
 const Link = sequelize.define("Link", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
@@ -22,4 +22,4 @@ const Link = sequelize.define("Link", {
 Link.belongsTo(Usuario, { foreignKey: "id_usuario" });
 Usuario.hasMany(Link, { foreignKey: "id_usuario" });
 
-export default Link;
+module.exports = Link;

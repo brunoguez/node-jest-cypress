@@ -1,6 +1,6 @@
-import sequelize from "./config/database.js";
-import Usuario from "./models/Usuario.js";
-import Link from "./models/Link.js";
+const sequelize = require("./config/database");
+const Usuario = require("./models/Usuario");
+const Link = require("./models/Link");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });

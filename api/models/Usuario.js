@@ -1,6 +1,6 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../config/database.js";
-import moment from "moment-timezone";
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database.js");
+const moment = require("moment-timezone");
 
 const Usuario = sequelize.define("Usuario", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
@@ -18,4 +18,4 @@ const Usuario = sequelize.define("Usuario", {
   },
 });
 
-export default Usuario;
+module.exports = Usuario;

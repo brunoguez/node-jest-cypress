@@ -1,9 +1,9 @@
-import { randomUUID } from "node:crypto";
-import Link from "../models/Link.js";
-import Usuario from "../models/Usuario.js";
-import moment from "moment-timezone";
+const { randomUUID } = require("crypto");
+const Link = require("../models/Link");
+const Usuario = require("../models/Usuario");
+const moment = require("moment-timezone");
 
-export class LinkController {
+class LinkController {
   async getAll(_, res) {
     const links = await Link.findAll();
     res.json(links);
@@ -105,3 +105,5 @@ export class LinkController {
     }
   }
 }
+
+module.exports = LinkController;

@@ -1,5 +1,5 @@
-import request from "supertest";
-import app from "../server.js";
+const request = require("supertest");
+const app = require("../server.js");
 
 describe("Testando API de Liks", () => {
   test("Deve listar todos os Liks", async () => {

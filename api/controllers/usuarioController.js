@@ -1,6 +1,6 @@
-import Usuarios from "../models/Usuario.js";
+const Usuarios = require("../models/Usuario.js");
 
-export class UsuarioController {
+class UsuarioController {
   async getAll(_, res) {
     const usuarios = await Usuarios.findAll();
     res.json(usuarios);
@@ -62,3 +62,4 @@ export class UsuarioController {
     }
   }
 }
+module.exports = UsuarioController;
