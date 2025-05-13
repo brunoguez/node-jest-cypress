@@ -1,8 +1,16 @@
 {
   "scripts": {
-    "start": "nodemon api/server.js"
+    "start": "nodemon api/server.js",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:run": "start-server-and-test start http://localhost:3000 cypress:run",
+    "test:open": "start-server-and-test start http://localhost:3000 cypress:open"
   },
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "cypress": "^14.3.3",
+    "start-server-and-test": "^2.0.11"
   }
 }

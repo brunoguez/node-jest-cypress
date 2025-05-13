@@ -20,6 +20,7 @@ function init() {
     onValueChanged({ value }) {
       usarioAtual = value.id;
       gridLinks.getDataSource().reload();
+      gridLinks.option("editing.allowAdding", !!value);
     },
   });
   const gridLinks = new DevExpress.ui.dxDataGrid("#grid_usuario", {
@@ -34,13 +35,18 @@ function init() {
       },
       remove: (key) => axios.delete("/link/" + key),
       update: (key, values) => axios.patch("/link/" + key, values),
-      insert: ({url, url_encurtada}) => {
-        if(!url) return new Error("O ")
+      insert: async ({ url }) => {
+        if (!usarioAtual) return Promise.reject("O Usuário é obrigatório");
+        if (!url) return Promise.reject("O URL Original é obrigatório");
+        return axios.post("/link", {
+          url,
+          id: usarioAtual,
+        });
       },
     }),
     width: "80%",
     editing: {
-      allowAdding: true,
+      allowAdding: false,
       allowDeleting: true,
       allowUpdating: true,
     },
@@ -51,7 +57,8 @@ function init() {
       },
       {
         dataField: "url_encurtada",
-        caption: "URL Encourtada",
+        caption: "URL Encurtado",
+        allowEditing: false,
       },
       {
         dataField: "createdAt",
