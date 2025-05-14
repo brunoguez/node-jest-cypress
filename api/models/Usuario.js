@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database.js");
+const sequelize = require("../config/database");
 const moment = require("moment-timezone");
 
 const Usuario = sequelize.define("Usuario", {

@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database.js");
-const Usuario = require("./Usuario.js");
+const sequelize = require("../config/database");
+const Usuario = require("./Usuario");
 const moment = require("moment-timezone");
 
 const Link = sequelize.define("Link", {
