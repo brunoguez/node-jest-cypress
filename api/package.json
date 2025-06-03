@@ -4,6 +4,7 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
+    "lint": "eslint .",
     "test": "jest",
     "dev": "nodemon server.js",
     "lint:check": "prettier --check .",
@@ -23,6 +24,7 @@
     "supertest": "^7.1.0"
   },
   "devDependencies": {
+    "eslint-plugin-security": "^3.0.1",
     "prettier": "^3.5.3"
   }
 }
